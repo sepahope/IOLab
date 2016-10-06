@@ -1,15 +1,20 @@
 $('#submit-survey').on('click', function submitSurvey() {
+	var gender = $("input[name=gender]").val();
 	var color = $("input[name=color]").val();
-	var food = $("input[name=food]").val();
-	var vacation = $("input[name=vacation]").val();
+	var school = $("input[name=school]").val();
+	var company = $("input[name=company]").val();
 	var feBefore = $("input[name=front-end-before]").val();
 	var feAfter = $("input[name=front-end-after]").val();
+	var frontendlan = $("input[name=frontendlan]").val();
+
 	$.post("submit-survey",
-	{color:color,
-		food:food,
-		vacation:vacation,
+	{gender:gender,
+		color:color,
+		school:school,
+		company:company,
 		feBefore:feBefore,
-		feAfter:feAfter},
+		feAfter:feAfter,
+		frontendlan:frontendlan},
 		function(data){
 			$("html").html(data);
 		})

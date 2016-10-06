@@ -37,12 +37,15 @@ def submitSurvey():
 		email = escape(session['email'])
 		surveyResponse = {}
 
+		surveyResponse['gender'] = request.form.get('gender')
 		surveyResponse['color'] = request.form.get('color')
-		surveyResponse['food'] = request.form.get('food')
-		surveyResponse['fe-after'] = request.form.get('feAfter')
-		surveyResponse['vacation'] = request.form.get('vacation')
+		surveyResponse['school'] = request.form.get('school')
+		surveyResponse['company'] = request.form.get('company')
+		surveyResponse['frontendlan'] = request.form.get('frontendlan')
 		surveyResponse['fe-before'] = request.form.get('feBefore')
 		surveyResponse['fe-after'] = request.form.get('feAfter')
+
+
 
 		return render_template('results.html', name=username, email=email, surveyResponse=surveyResponse)
 	else:

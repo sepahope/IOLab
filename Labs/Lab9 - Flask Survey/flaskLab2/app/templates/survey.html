@@ -18,17 +18,44 @@
 {% block content %}
 <h1>A Little Survey About You</h1>
 	<div class="main-container">
-		<h3>Some of your favorites</h3>
-		<label class="survey-item">What's your favorite color?<input type="text" name="color"></label>
-		<label class="survey-item">How about your favorite food?
-		<input type="text" name="food"></label>
-		<label class="survey-item">And your favorite vacation spot?
-		<input type="text" name="vacation"></label>
+		<h3>Basic Information</h3>
 
-		<h3>Let's look at your front end skillz progression</h3>
-		<label class="survey-item">What was your front end proficiency before IO Lab?<input type="range" min="1" max="5" step=".5" name="front-end-before" id="fe-before"><span></span></label>
-		<label class="survey-item">How about after the front end module?<input type="range" min="1" max="5" step=".5" name="front-end-after" id="fe-after"><span></span></label>
+		<!-- added radio question -->
+		<label class="survey-item">What's your gender?<br><br>
+		  <input type="radio" name="gender" value="male"> Male<br>
+		  <input type="radio" name="gender" value="female"> Female<br>
+		  <input type="radio" name="gender" value="other"> Other
+		</label> 
+
+		<label class="survey-item">What's your favorite color?<input type="text" name="color"></label>
+		<label class="survey-item">How about your favorite information school?
+		<input type="text" name="school"></label>
+		<label class="survey-item">And your dream company?
+		<input type="text" name="company"></label>
+
+		<h3>Let's look at your front end skills progression</h3>
+
+		<!-- added selector question -->
+<!-- 		<label class="survey-item">What's your favorite front end language?
+			<select>
+			  <option name="frontendlan" value="htmllan" selected>html</option>
+			  <option name="frontendlan" value="csslan">css</option>
+			  <option name="frontendlan" value="javascriptlan">javascript</option>
+			  <option name="frontendlan" value="phplan">php</option>
+			  <option name="frontendlan" value="otherlan">other</option>
+
+			</select>
+		</label>  -->
+
+		<label class="survey-item">What's your favorite front end language?
+		<input type="text" name="frontendlan"></label>
+		<!-- modified range and step -->
+		<label class="survey-item">What was your front end proficiency before IO Lab?
+		<input type="range" min="1" max="10" step="1" name="front-end-before" id="fe-before"><span></span></label>
+		<label class="survey-item">How about after the front end module?
+		<input type="range" min="1" max="10" step="1" name="front-end-after" id="fe-after"><span></span></label>
 
 		<button class="action-button" id="submit-survey">Submit</button>
+
 </div>
 {% endblock %}
