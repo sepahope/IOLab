@@ -16,7 +16,7 @@ def insert_order(customer_id, name_of_part, manufacturer_of_part):
         cur.execute('INSERT INTO `order` (name_of_part, manufacturer_of_part) VALUES (?, ?)', (name_of_part, manufacturer_of_part))
         con.commit()
         order_id = cur.execute('SELECT last_insert_rowid()').fetchall()[0][0]
-        # # insert data into table order_has_customer
+        # insert into table order_has_customer
         cur.execute('INSERT INTO order_has_customer (order_order_id, customer_customer_id) VALUES (?, ?)', (order_id, customer_id))
         con.commit()
 
@@ -26,7 +26,7 @@ def retrieve_customers():
         cur = con.cursor()
         customers = cur.execute("select * from customer").fetchall()
         address = cur.execute("select * from address").fetchall()
-    # calulate addresses for each custmoers
+    # calulate addresses for each customer
     numbers = []
     for customer in customers:
         count = 0
@@ -37,6 +37,7 @@ def retrieve_customers():
     return customers, address, numbers
 
 def retrieve_orders():
+    # confused about this part, I've referred to other people to figure out how this works
     with sql.connect('app.db') as con:
         orders = []
         con.row_factory = sql.Row
